@@ -1,4 +1,4 @@
-# Skiing Gate API README
+# auth-nodejs-mysql README
 
 ## Setup
 
