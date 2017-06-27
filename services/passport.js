@@ -1,4 +1,3 @@
-const passport = require('passport')
 const User = require('../models/user')
 const config = require('../config')
 const JwtStrategy = require('passport-jwt').Strategy
@@ -30,5 +29,7 @@ const jwtLogin = new JwtStrategy(jwtOptions, (payload, done) => {
     .catch(e => done(err, false))
 })
 
-passport.use(jwtLogin)
-passport.use(localLogin)
+module.exports = {
+  jwt: jwtLogin,
+  local: localLogin
+}

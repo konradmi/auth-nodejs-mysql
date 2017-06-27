@@ -1,7 +1,9 @@
 const Authentication = require('./controllers/authentication')
-const passportService = require('./services/passport')
-const smsParser = require('./services/smsParser')
+const passportStrategies = require('./services/passport')
 const passport = require('passport')
+
+passport.use(passportStrategies.jwt)
+passport.use(passportStrategies.local)
 
 const requireAuth = passport.authenticate('jwt', { session : false })
 const requireSignin = passport.authenticate('local', { session : false })

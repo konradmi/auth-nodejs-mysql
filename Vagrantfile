@@ -24,8 +24,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       puts "========================="
       puts "Executing vagrant triggers"
       puts "========================="
-      puts "seed local db"
+      puts "create database"
       system("mysql -h 127.0.0.1 -P 3310 -u root --password=root < scripts/create_db.sql")
+      puts "create the users table"
+      system("mysql -h 127.0.0.1 -P 3310 -u root --password=root < scripts/create_users.sql")
     end
   else
     puts "========================="
